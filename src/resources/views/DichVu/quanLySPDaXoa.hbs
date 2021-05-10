@@ -1,0 +1,225 @@
+<div class="container">
+    <h3>DANH SÁCH SẢN PHẨM ĐÃ XÓA</h3>
+    <p>Tổng số SP là: {{tongsp}}</p>
+    <script> var x = parseFloat({{tongsp}})/10.0; </script>
+    <div>
+        <table id="table_T" class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Mã</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Giá(VNĐ)</th>
+                    <th scope="col">Khuyến Mãi(%)</th>
+                    <th scope="col">Thông Tin Chi Tiết</th>
+                    <th scope="col">Ngày Xóa</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each sanphams}}
+                <tr>
+                    <th scope="row">{{sum @index 1}}</th>
+                    <td>{{this.masp}}</td>
+                    <td>{{this.tensp}}</td>
+                    <td> <img src="../img/{{this.hinhanh}}" alt="no_image" width="20px" height="20px" id="avt_td"> </td>
+                    <td>{{this.giasp}}</td>
+                    <td>{{this.khuyenmai}}</td>
+                    <td>{{this.thongtinsp}}</td>
+                    <td class="format_ngay">{{this.deletedAt}}</td>
+                    <td>
+                        <a style="padding: 0;" href="" data-toggle="modal" data-id="{{this._id}}"
+                            data-target="#RestoreSP" class="btn btn-outline-success">
+                            <img src="../../img/restore.png" alt="" width="40px" height="40px">
+                        </a>
+                    </td>
+                    <td><a style="padding: 0;" href="" data-toggle="modal" data-id="{{this._id}}"
+                            data-target="#delete_SP" class="btn btn-outline-danger">
+                            <img src="../../img/xoa.png" alt="" width="40px" height="40px">
+                        </a>
+                    </td>
+                </tr>
+
+                {{else}}
+                <tr>
+                    <td style="color: red;" colspan="9" class="text-center"> Không các sản phẩm nào!</td>
+                </tr>
+
+                {{/each}}
+            </tbody>
+        </table>
+
+
+    </div>
+    <div id="nut_pagination">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination" style=" justify-content: center;">
+                <li class="page-item disabled" id="Previous">
+                    <a class="page-link" href="" id="a_Previous">Previous</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Model delete SanPham -->
+    <div class="modal fade" id="RestoreSP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn khoi phuc sản phẩm này không?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                    <button type="button" id="btnRestoreSP" class="btn btn-success">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- form xu ly khoi phuc san pham --}}
+    <form name="formRestoreSP" method="POST" style="display: none;"></form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var idsp;
+            var formRestoreSP = document.forms['formRestoreSP'];
+            var btnRestoreSP = document.getElementById('btnRestoreSP');
+
+            $('#RestoreSP').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                idsp = button.data('id');
+
+            });
+
+            btnRestoreSP.onclick = function () {
+                formRestoreSP.action = '/DichVu/' + idsp + '/restore';
+                formRestoreSP.submit();
+            }
+        });
+    </script>
+
+    <!-- Model delete SanPham -->
+    <div class="modal fade" id="delete_SP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa vĩnh viễn sản phẩm này không?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                    <button type="button" id="xoa-sp" class="btn btn-success">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- form xu ly xoa san pham --}}
+    <form name="formXoaSP" method="POST" style="display: none;"></form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var idsp;
+            var formXoaSP = document.forms['formXoaSP'];
+            var btnXoaSP = document.getElementById('xoa-sp');
+
+            $('#delete_SP').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                idsp = button.data('id');
+
+            });
+
+            btnXoaSP.onclick = function () {
+                formXoaSP.action = '/DichVu/' + idsp + '/delete';
+                formXoaSP.submit();
+            }
+        });
+
+    </script>
+    <script src="../../javascript/script.js"></script>
+</div>
+
+
+<script>
+    console.log("x: ", x)
+    var y = x - parseInt(x);
+    if (y > 0) {
+        x = parseInt(x) + 1;
+    }
+
+    if (parseInt(x) <= 1) {
+        document.getElementById('nut_pagination').style.display = 'none';
+    }
+
+    const url = new URL(location.href);
+    const page = url.search.substr(6);
+    for (i = 0; i < x; i++) {
+        var li = document.createElement('li');
+        // add class
+        if (i + 1 == Number(page)) {
+            li.className = "page-item active";
+        } else {
+            li.className = "page-item";
+        }
+        li.id = (i + 1);
+        // tạo link a <a></a>
+        var a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '?page=' + (i + 1);
+        var aText = document.createTextNode((i + 1));
+        a.appendChild(aText);
+        // append to li
+        li.appendChild(a);
+        // append li to ul
+        var ul = document.querySelector('.pagination');
+        ul.appendChild(li);
+    }
+
+    {
+        var li = document.createElement('li');
+        li.id = 'Next';
+        // tạo link a <a></a>
+        var a = document.createElement('a');
+        a.className = 'page-link';
+        a.id = 'a_Next';
+        a.href = "?page=" + (Number(page) + 1);
+        var aText = document.createTextNode('Next');
+        a.appendChild(aText);
+        // append to li
+        li.appendChild(a);
+        // append li to ul
+        var ul = document.querySelector('.pagination');
+        ul.appendChild(li);
+    }
+
+    if (!page) {
+        document.getElementById('1').className = 'page-item active';
+        document.getElementById('a_Next').href = "?page=2";
+    }
+
+    if ((page) && (Number(page) != 1)) {
+        document.getElementById('Previous').className = 'page-item';
+        document.getElementById('a_Previous').href = "?page=" + (Number(page) - 1);
+    }
+
+    if ((page) && (Number(page) >= parseInt(x))) {
+        document.getElementById('Next').className = 'page-item disabled';
+    }
+
+</script>

@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-6">
+            <h3>THÔNG TIN CỦA BẠN</h3>
+            <table style="background-color: LightSteelBlue;" class="table table-hover" border="0">
+                <tr>
+                    <th style="background-color: white; padding-bottom: 0;" colspan="2"><img
+                            src="../img/{{taikhoan.avt}}" alt="" width="150px" height="150px"></th>
+                </tr>
+                <tr>
+                    <th>Tên:</th>
+                    <td>{{taikhoan.ten}}</td>
+                </tr>
+                <tr>
+                    <th>Số ĐT:</th>
+                    <td>{{taikhoan.sdt}}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{taikhoan.email}}</td>
+                </tr>
+                <tr>
+                    <th>Ngày Sinh:</th>
+                    <td class="format_ngay">{{taikhoan.ngaysinh}}</td>
+                </tr>
+                <tr>
+                    <th>Giới Tính:</th>
+                    <td>{{taikhoan.gioitinh}}</td>
+                </tr>
+                <tr>
+                    <th>Địa Chỉ:</th>
+                    <td>{{taikhoan.diachi}}</td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <a href="/NhanVien/{{taikhoan._id}}/edit?linkCacel=/admins/tk" class="btn btn-primary">Cập
+                            Nhật</a>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 18%;" class="col-sm-6 col-lg-6">
+            <h4 style="color: red;">Doanh Số Đơn Hàng Của Bạn</h4>     
+            
+            <p style="color: blue;">Số đơn hàng đã đặt của bạn là: {{soDH1}}</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{soDH1}}%" aria-valuenow="{{soDH1}}"
+                    aria-valuemin="0" aria-valuemax="100">{{soDH1}}</div>
+            </div>
+            <br>
+            <p style="color: green;">Số đơn hàng đã giao của bạn là: {{soDH2}}</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{soDH2}}%"
+                    aria-valuenow="{{soDH2}}" aria-valuemin="0" aria-valuemax="">{{soDH2}}</div>
+            </div>
+            <br>
+            <p style="color: yellow;">Số đơn hàng đã hoàn thành của bạn là: {{soDH3}}</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{soDH3}}%"
+                    aria-valuenow="{{soDH3}}" aria-valuemin="0" aria-valuemax="">{{soDH3}}</div>
+            </div>
+            <br>
+            <p style="color: red;">Số đơn hàng đã hủy của bạn là: {{soDH4}}</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{soDH4}}%"
+                    aria-valuenow="{{soDH4}}" aria-valuemin="" aria-valuemax="">{{soDH4}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../javascript/script.js"></script>
+<style>
+    p{
+        font-size: 110%;
+    }
+</style>

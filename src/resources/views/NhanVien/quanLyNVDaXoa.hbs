@@ -1,0 +1,148 @@
+<div class="container">
+    <div>
+        <h3>DANH SÁCH CHỨA NHÂN VIÊN ĐÃ BỊ XÓA</h3>
+        <table class="table table-hover table-striped" id="table_T">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">SDT</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Ngày Sinh</th>
+                    <th scope="col">Giới Tính</th>
+                    <th scope="col">Địa Chỉ</th>
+                    <th scope="col">Loại</th>
+                    <th scope="col">User_Name</th>
+                    <th scope="col">Ngày Xóa</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each taikhoan}}
+                <tr>
+                    <th scope="row">{{sum @index 1}}</th>
+                    <td><img src="../img/{{this.avt}}" alt="no_image" width="20px" height="20px" id="avt_td"></td>
+                    <td>{{this.ten}}</td>
+                    <td>{{this.sdt}}</td>
+                    <td>{{this.email}}</td>
+                    <td class="format_ngay">{{this.ngaysinh}}</td>
+                    <td>{{this.gioitinh}}</td>
+                    <td>{{this.diachi}}</td>
+                    <td>{{this.loai}}</td>
+                    <td>{{this.username}}</td>
+                    <td class="format_ngay">{{this.deletedAt}}</td>
+                    <td>
+                        <a href="" style="padding: 0;" data-toggle="modal" class="btn btn-outline-success"
+                            data-id="{{this._id}}" data-target="#RestoreNV">
+                            <img src="../../img/restore.png" alt="" width="40px" height="40px">
+                        </a>
+                    </td>
+                    <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-danger" data-id="{{this._id}}"
+                            data-target="#delete_NV">
+                            <img src="../../img/xoa.png" alt="" width="40px" height="40px">
+                        </a>
+                    </td>
+                </tr>
+
+                {{else}}
+                <tr>
+                    <td colspan="9" class="text-center" style="color: red;"> Chưa có nhân viên nào!
+                    </td>
+                </tr>
+
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Model khoi phuc nhan vien -->
+    <div class="modal fade" id="RestoreNV" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn khôi phục nhân viên này không?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="btnRestoreNV" class="btn btn-success">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- form xu ly khoi phuc nhan vien --}}
+    <form name="formRestoreNV" method="POST" style="display: none;"></form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var idsp;
+            var formRestoreNV = document.forms['formRestoreNV'];
+            var btnRestoreNV = document.getElementById('btnRestoreNV');
+
+            $('#RestoreNV').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                idsp = button.data('id');
+
+            });
+
+            btnRestoreNV.onclick = function () {
+                formRestoreNV.action = '/NhanVien/' + idsp + '/restore';
+                formRestoreNV.submit();
+            }
+        });
+    </script>
+
+    <!-- Model delete nhan vien -->
+    <div class="modal fade" id="delete_NV" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa vĩnh viễn nhân viên này không?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="xoa-nv" class="btn btn-success">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- form xu ly xoa nhan vien --}}
+    <form name="formXoaNV" method="POST" style="display: none;"></form>
+
+    <script src="../../javascript/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var idsp;
+            var formXoaNV = document.forms['formXoaNV'];
+            var btnXoaNV = document.getElementById('xoa-nv');
+
+            $('#delete_NV').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                idsp = button.data('id');
+
+            });
+
+            btnXoaNV.onclick = function () {
+                formXoaNV.action = '/NhanVien/' + idsp + '/delete';
+                formXoaNV.submit();
+            }
+        });
+    </script>
+</div>

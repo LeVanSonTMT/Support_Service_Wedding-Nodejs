@@ -1,0 +1,129 @@
+<div class="container">
+  <div>
+    <h3>DANH SÁCH ĐƠN HÀNG ĐÃ HOÀN THÀNH</h3>
+    <p>Tổng DH thành công là: {{countDH}} </p>
+    <script> var x = parseFloat({{countDH}})/5.0; </script>
+    <table class="table table-hover table-striped" id="table_T">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th class="ngban" scope="col">Người Bán</th>
+          <th scope="col">Tên Khách Hàng</th>
+          <th scope="col">SDT</th>
+          <th scope="col">Địa Chỉ Giao</th>
+          <th scope="col">Ngày Đặt</th>
+          <th scope="col">Ngày Giao</th>
+          <th scope="col">Ngày Trả</th>
+          <th scope="col">Số lượng SP</th>
+          <th scope="col">Tổng Tiền</th>
+          <th scope="col">Trạng Thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each donhang}}
+        <tr>
+          <th scope="row">{{sum @index 1}}</th>
+          <td class="ngban">{{this.nguoiban}}</td>
+          <td>{{this.nguoimua}}</td>
+          <td>{{this.SDTnguoimua}}</td>
+          <td>{{this.DiaChinguoimua}}</td>
+          <td class="format_ngay">{{this.createdAt}}</td>
+          <td class="format_ngay">{{this.ngaygiao}}</td>
+          <td class="format_ngay">{{this.ngaytra}}</td>          
+          <td style="text-align: center;">
+            <a href="/DonHang/{{this._id}}/xem_sp?linkCacel=DH_ht"  class="btn btn-warning" >{{this.slSP}}</a>
+          </td>
+          <td>{{this.tongtien}}</td>
+          <td style="color: red;" >{{this.trangthai}}</td>
+        </tr>
+
+        {{else}}
+        <tr>
+          <td colspan="10"  style="color: red;" class="text-center"> Chưa có đơn hàng nào!
+          </td>
+        </tr>
+
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+  <div id="nut_pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" style=" justify-content: center;">
+          <li class="page-item disabled" id="Previous">
+            <a class="page-link" href="" id="a_Previous">Previous</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
+
+
+<script src="../../javascript/script.js"></script>
+<script>
+  // phaan trang
+  var y = x - parseInt(x);
+  if (y > 0) {
+    x = parseInt(x) + 1;
+  }
+
+  if (parseInt(x) <= 1) {
+    document.getElementById('nut_pagination').style.display = 'none';
+  }
+
+  const url = new URL(location.href);
+  const page = url.search.substr(6);
+  for (i = 0; i < x; i++) {
+    var li = document.createElement('li');
+    // add class
+    if (i + 1 == Number(page)) {
+      li.className = "page-item active";
+    } else {
+      li.className = "page-item";
+    }
+    li.id = (i + 1);
+    // tạo link a <a></a>
+    var a = document.createElement('a');
+    a.className = 'page-link';
+    a.href = '?page=' + (i + 1);
+    var aText = document.createTextNode((i + 1));
+    a.appendChild(aText);
+    // append to li
+    li.appendChild(a);
+    // append li to ul
+    var ul = document.querySelector('.pagination');
+    ul.appendChild(li);
+  }
+
+  {
+    var li = document.createElement('li');
+    li.id = 'Next';
+    // tạo link a <a></a>
+    var a = document.createElement('a');
+    a.className = 'page-link';
+    a.id = 'a_Next';
+    a.href = "?page=" + (Number(page) + 1);
+    var aText = document.createTextNode('Next');
+    a.appendChild(aText);
+    // append to li
+    li.appendChild(a);
+    // append li to ul
+    var ul = document.querySelector('.pagination');
+    ul.appendChild(li);
+  }
+
+  if (!page) {
+    document.getElementById('1').className = 'page-item active';
+    document.getElementById('a_Next').href = "?page=2";
+  }
+
+  if ((page) && (Number(page) != 1)) {
+    document.getElementById('Previous').className = 'page-item';
+    document.getElementById('a_Previous').href = "?page=" + (Number(page) - 1);
+  }
+
+  if ((page) && (Number(page) >= parseInt(x))) {
+    document.getElementById('Next').className = 'page-item disabled';
+  }
+</script>

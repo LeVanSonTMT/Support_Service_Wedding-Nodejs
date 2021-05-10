@@ -1,0 +1,102 @@
+<div>
+    <!-- Phần Footer -->
+    <div id="footer" class="jumbotron text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <h4 style="text-align: left;">DỊCH VỤ HỖ TRỢ TIỆC CƯỚI BEA WEDDING</h4>
+                    <p>
+                        Bea Wedding là đơn vị là đơn vị hàng đầu tại An Giang hoạt động trong
+                        lĩnh vực trang trí lễ cưới, hỏi trọn gói uy tín, chuyên nghiệp.
+                    </p>
+                    <h5 style="text-align: left;"><strong>Liên hệ</strong></h5>
+                    <p> <strong><i>Đại chỉ:</i></strong> Số 88 Trần Hưng Đạo,P.Mỹ Bình, TP.Long Xuyên, An Giang <br>
+                        <strong><i>Số điện thoại:</i></strong> <a class="aa" href="tel: 0961542888"
+                            target="_self">0961.542.888</a> - <a class="aa" href="tel: 0934399622"
+                            target="_self">0934.399.622</a> <br>
+                        <strong><i>Email:</i></strong> <a class="aa" href="mailto: bea123@gmail.com" target="_self">
+                            bea123@gmail.com </a>
+                    </p>
+
+                </div>
+
+                <div class="col">
+                    <h4 style="text-align: left;">DỊCH VỤ CỦA CHÚNG TÔI</h4>
+                    <ul>
+                        <li><a href="/DichVu/c">Dịch dụ cho thuê cổng cưới</a></li>
+                        <li><a href="/DichVu/r">Dịch dụ cho thuê rạp cưới</a></li>
+                        <li><a href="/DichVu/bgt">Dịch dụ trang trí bàn gia tiên</a></li>
+                        <li><a href="/DichVu/bg">Dịch dụ trang trí bàn gallery</a></li>
+                        <li><a href="/DichVu/b">Dịch dụ trang trí backdrop chụp ảnh</a></li>
+                        <li><a href="/DichVu/x">Dịch dụ cho thuê xe hoa</a></li>
+                        <li><a href="/DichVu/bt">Cho thuê bàn ghế</a></li>
+                        <li><a href="/DichVu/pk">Cho thuê các phụ kiện event</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kết thúc phần Footer -->
+
+</div>
+
+<div>
+    <a class="btn-top" href="javascript:void(0)" title="Top" style="display: inline; "></a>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        if ($(".btn-top").length >= 0) {
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                if (e > 400) {
+                    $(".btn-top").show()
+                } else {
+                    $(".btn-top").hide()
+                }
+            });
+            $(".btn-top").click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                })
+            })
+        }
+    });
+</script>
+
+
+<style>
+    h4 {
+        color: black;
+    }
+
+    .row {
+        text-align: left;
+    }
+
+    .aa {
+        color: black;
+        font-weight: normal;
+    }
+
+    li a {
+        color: black;
+    }
+
+    .btn-top {
+        background-image: url("../../img/muiten.PNG");
+        background-size: 100% 100%;
+        cursor: pointer;
+        display: none;
+        outline: medium none;
+        position: fixed;
+        bottom: 1%;
+        right: 1%;
+        width: 4%;
+        height: 6%;
+        padding: 0;
+        z-index: 99;
+    }
+</style>

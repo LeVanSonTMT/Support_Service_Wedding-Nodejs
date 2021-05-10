@@ -1,0 +1,215 @@
+<div id="header">
+    <div id="avt_web" class="jumbotron text-center">
+        <h1 style="color: #ef487a; font-family: Times, Times New Roman, Georgia, serif;"><strong>DỊCH VỤ HỖ TRỢ TIỆC
+                CƯỚI BEA WEDDING</strong></h1>
+        <div>
+            <p> <strong><i>Đại chỉ:</i> Số 88 Trần Hưng Đạo,P.Mỹ Bình, TP.Long Xuyên, An Giang </strong> <br>
+                <strong><i>Số điện thoại:</i> <a class="aaa" href="tel: 0961542888" target="_self">0961.542.888</a> - <a
+                        class="aaa" href="tel: 0934399622" target="_self">0934.399.622</a> </strong> <br>
+                <strong><i>Email:</i> <a class="aaa" href="mailto: bea123@gmail.com" target="_self"> bea123@gmail.com
+                    </a> </strong>
+            </p>
+        </div>
+    </div>
+
+    <div id="thanh_tim_kiem">
+        <div class="search-container align-items-center">
+            <form action="/DichVu/timkiem">
+                <input style="border: blue 1px solid;" type="text" placeholder="Tìm kiếm..." name="search">
+                <button type="submit" class="btn-primary"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container" style="margin: 0%;">
+            <a class="navbar-brand" href="/">BEA.COM</a>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav" id="menuTT">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/GioiThieu">GIỚI THIỆU</a>
+                    </li>
+
+                    <li class="nav-item" id='li_DV'>
+                        <a class="nav-link" id="DV" href="/DichVu">DỊCH VỤ</a>
+                        <ol class="list-group" id="ol_dv">
+                            <li class="list-group-item"><a href="/DichVu/c">Thuê Cổng Cưới</a></li>
+                            <li class="list-group-item"><a href="/DichVu/r">Thuê Rạp Cưới</a></li>
+                            <li class="list-group-item"><a href="/DichVu/bgt">Trang Trí Bàn Gia Tiên</a></li>
+                            <li class="list-group-item"><a href="/DichVu/bg">Trang Trí Bàn Gallery</a></li>
+                            <li class="list-group-item"><a href="/DichVu/x">Trang Trí Xe Hoa</a></li>
+                            <li class="list-group-item"><a href="/DichVu/b">Trang Trí Backdrop</a></li>
+                            <li class="list-group-item"><a href="/DichVu/bt">Thuê Bàn Ghế</a></li>
+                            <li class="list-group-item"><a href="/DichVu/pk">Thuê Phụ Kiện Khác</a></li>
+                        </ol>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/KhuyenMai">KHUYẾN MÃI</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/TuyenDung">THÔNG BÁO</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/LienHe">LIÊN HỆ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/DonHang/ClientCreate">ĐẶT HÀNG</a>
+                    </li>
+                </ul>
+
+
+                <div class="btn-group" role="group" aria-label="Basic example" id="menuQL">
+                    <div class="dropdown" id="qlnv">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            QUẢN LÝ NHÂN VIÊN
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/NhanVien/create">Thêm</a>
+                            <a class="dropdown-item" href="/NhanVien/quanLyNV">Xem Danh Sách</a>
+                            <a class="dropdown-item" href="/NhanVien/quanLyNVDaXoa">Thùng Rác</a>
+                        </div>
+                    </div>
+                    <div class="dropdown" id="qlsp">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            QUẢN LÝ SẢN PHẨM
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/DichVu/create">Thêm</a>
+                            <a class="dropdown-item" href="/DichVu/quanLySP">Xem Danh Sách</a>
+                            <a class="dropdown-item" href="/DichVu/quanLySPDaXoa">Thùng Rác</a>
+                        </div>
+                    </div>
+                    <div class="dropdown" id="qldh">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            QUẢN LÝ ĐƠN HÀNG
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/DonHang/create">Thêm</a>
+                            <a class="dropdown-item" href="/DonHang/DH_choduyet">Đơn Hàng Chờ Duyệt</a>
+                            <a class="dropdown-item" href="/DonHang/DH_chogiao">Đơn Hàng Chờ Giao</a>
+                            <a class="dropdown-item" href="/DonHang/DH_dagiao">Đơn Hàng Đã Giao</a>
+                            <a class="dropdown-item" href="/DonHang/DH_ht">Đơn Hàng Hoàn Thành</a>
+                            <a class="dropdown-item" href="/DonHang/DH_huy">Đơn Hàng Đã Hủy</a>
+                        </div>
+                    </div>
+                    <div class="dropdown" id="qltb">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            QUẢN LÝ THÔNG BÁO
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/TuyenDung/create">Thêm</a>
+                            <a class="dropdown-item" href="/TuyenDung/quanLyTD">Xem Thông Báo</a>
+                            <a class="dropdown-item" href="/TuyenDung/quanLyTDDaXoa">Lịch Sử</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div><a style="border: solid 1px blue;" class="nav-link btn btn-outline-primary " id="dangnhap" href="/admins/DangNhap"> Đăng Nhập </a>
+        </div>
+        <img id="icon_admin" src="../../img/icon_admin.png" alt="" width="2.8%" height="2.8%">
+        <div class="dropdown" id="dangxuat">
+            <button style="background-color: #1bce9e;" id="user_name" class="btn btn-outline dropdown-toggle"
+                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu" style="background-color: #1bce9e;" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/admins/tk">USER</a>
+                <a class="dropdown-item" href="/admins/DangXuat">Đăng Xuất</a>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .dropdown-item {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        if (document.cookie) {
+            var ten = document.cookie.split(';')[2].split('=')[1];
+
+            document.getElementById("dangnhap").style.display = 'none';
+            document.getElementById('menuTT').style.display = 'none';
+            document.getElementById('user_name').innerHTML = ten.replaceAll('%20', ' ');
+
+            if (document.cookie.split(';')[1] === ' loai=1') {
+                document.getElementById('qlnv').style.display = 'none';
+                document.getElementById('qlsp').style.display = 'none';
+                document.getElementById('qltb').style.display = 'none';
+            }
+        }
+        else {
+            document.getElementById("dangxuat").style.display = 'none';
+            document.getElementById('menuQL').style.display = 'none';
+            document.getElementById('icon_admin').style.display = 'none';
+        }
+    </script>
+</div>
+
+<div id="nut">
+    <a href="https://www.facebook.com/BEA-Wedding-100314662210874" target="_blank">
+        <img src="../../img/fb.gif" alt="facebook" width="100%" height="15%">
+    </a>
+    <br>
+    <a href="https://zalo.me/0934399622" target="_blank">
+        <img src="../../img/zalo.gif" alt="zalo" width="100%" height="15%">
+    </a>
+    <br>
+    <a href="https://m.me/100314662210874?ref=WelcomeMessage" target="_blank">
+        <img src="../../img/Messenger.gif" alt="Messenger" width="100%" height="15%">
+    </a>
+    <br>
+    <a href="tel: 0961 542 888" target="_self">
+        <img src="../../img/call.gif" alt="Call" width="100%" height="15%">
+    </a>
+    <br>
+    <a href="mailto: bea123@gmail.com" target="_self">
+        <img src="../../img/email.gif" alt="Email" width="100%" height="15%">
+    </a>
+    <br>
+    <a href="https://www.google.com/maps/dir//10.388483,105.4314883/@10.388483,105.431488,12z?hl=vi" target="_blank">
+        <img src="../../img/vitri.gif" alt="ViTri" width="100%" height="15%">
+    </a>
+
+</div>
+
+<style>
+    .dropdown-menu {
+        background-color: #ddd;
+        width: 100%;
+        border: 1px black solid;
+    }
+
+    
+    #dangxuat {
+        margin-right: 5%;
+    }
+
+    #nut {
+        background-color: ;
+        width: 4%;
+        height: 40%;
+        margin-left: 2%;
+        display: inline-block;
+        background-size: 100% 100%;
+        outline: medium none;
+        position: fixed;
+        bottom: 1%;
+        position: fixed;
+        z-index: 80;
+    }
+    .aaa{
+        color: black;
+    }
+
+</style>

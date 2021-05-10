@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="/DichVu" class="btn btn-secondary"> TẤT CẢ </a>
+        <a href="/DichVu/c" class="btn btn-secondary">CỔNG CƯỚI</a>
+        <a href="/DichVu/r" class="btn btn-secondary">RẠP CƯỚI</a>
+        <a href="/DichVu/bgt" class="btn btn-secondary">BÀN GIA TIÊN</a>
+        <a href="/DichVu/b" class="btn btn-secondary">BACKDROP CHỤP ẢNH</a>
+        <a href="/DichVu/bg" class="btn btn-secondary">BÀN GALLERY</a>
+        <a href="/DichVu/x" class="btn btn-secondary"> XE CƯỚI </a>
+        <a href="/DichVu/bt" class="btn btn-secondary">BÀN GHẾ</a>
+        <a href="/DichVu/pk" class="btn btn-secondary">THIẾT BỊ KHÁC</a>
+    </div>
+
+    <div class="mt-4">
+        <H4 style="text-align: left; display: inline-block;">SẢN PHẨM</H4>
+        <p style="display: inline-block;">Tổng SP: {{tongSP}}</p>
+        <script>
+            var x = parseFloat({{tongSP}})/6.0;
+        </script>
+        <div class="row">
+            {{#each sanphams}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ</h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Không có sản phẩm nào</p>
+            </div>
+
+            {{/each}}
+        </div>
+
+    </div>
+    <div id="nut_pagination">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination" style=" justify-content: center;">
+                <li class="page-item disabled" id="Previous">
+                    <a class="page-link" href="" id="a_Previous">Previous</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<script>
+    console.log("x: ", x)
+
+    var y = x - parseInt(x);
+    if (y > 0) {
+        x = parseInt(x) + 1;
+    }
+
+    if (parseInt(x) <= 1) {
+        document.getElementById('nut_pagination').style.display = 'none';
+    }
+
+    const url = new URL(location.href);
+    const page = url.search.substr(6);
+    for (i = 0; i < x; i++) {
+        var li = document.createElement('li');
+        // add class
+        if (i + 1 == Number(page)) {
+            li.className = "page-item active";
+        } else {
+            li.className = "page-item";
+        }
+        li.id = (i + 1);
+        // tạo link a <a></a>
+        var a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '?page=' + (i + 1);
+        var aText = document.createTextNode((i + 1));
+        a.appendChild(aText);
+        // append to li
+        li.appendChild(a);
+        // append li to ul
+        var ul = document.querySelector('.pagination');
+        ul.appendChild(li);
+    }
+
+    {
+        var li = document.createElement('li');
+        li.id = 'Next';
+        // tạo link a <a></a>
+        var a = document.createElement('a');
+        a.className = 'page-link';
+        a.id = 'a_Next';
+        a.href = "?page=" + (Number(page) + 1);
+        var aText = document.createTextNode('Next');
+        a.appendChild(aText);
+        // append to li
+        li.appendChild(a);
+        // append li to ul
+        var ul = document.querySelector('.pagination');
+        ul.appendChild(li);
+    }
+
+    if (!page) {
+        document.getElementById('1').className = 'page-item active';
+        document.getElementById('a_Next').href = "?page=2";
+    }
+
+    if ((page) && (Number(page) != 1)) {
+        document.getElementById('Previous').className = 'page-item';
+        document.getElementById('a_Previous').href = "?page=" + (Number(page) - 1);
+    }
+
+    if ((page) && (Number(page) >= parseInt(x))) {
+        document.getElementById('Next').className = 'page-item disabled';
+    }
+
+</script>

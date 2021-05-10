@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 style="border-bottom: #DC143C 1px solid;"> KHUYẾN MÃI </h2>
+    <div class="mt-4">
+        <div class="row">
+            {{#each sanphams}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p>Thông tin chi tiết: {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

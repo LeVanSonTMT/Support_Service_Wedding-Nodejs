@@ -1,0 +1,95 @@
+body {
+    background-color: #ffffff;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-align: center;
+    }
+    h1 {
+        color: red;
+    }
+
+    h2 {
+        color: #dc143c;
+    }
+
+    h3 {
+        color: #ff9900;
+    }
+    a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: none;
+        color: red;
+    }
+    .dauvao {
+        text-align: center;
+        color: red;
+        // display: none;
+    }
+    .container {
+        margin-top: 1%;
+        margin-bottom: 2%;
+        form {
+            background-color: #9999ff;
+            padding: 4%;
+        }
+        #table_T {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+
+            #avt_td:hover {
+                width: 250px;
+                height: 200px;
+                position: absolute;
+                z-index: 99;
+            }
+        }
+        #collapsibleNavbar {
+            #ol_dv {
+                display: none;
+                position: absolute;
+                z-index: 9999;
+                width: auto;
+                height: auto;
+                padding: 0 1%;
+                li {
+                    background-color: #ddd;
+                }
+            }
+            #li_DV:hover > #ol_dv {
+                display: block;
+            }
+        }
+
+        thead {
+            background-color: #bbbbbb;
+        }
+    }
+    #footer {
+        background-color: #f0cfd2;
+        margin-bottom: 0%;
+    }
+    #header {
+        background-color: #f0cfd2;
+        #avt_web {
+            background-color: #f0cfd2;
+            padding: 20px 0px 0px 0px;
+            margin-bottom: 0%;
+        }
+
+        #thanh_tim_kiem {
+            margin-left: 2.5%;
+            display: inline-block;
+            background-color: #ddd;
+            padding: 0.5%;
+        }
+    }
+}

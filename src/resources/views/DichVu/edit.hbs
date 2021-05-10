@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="col-sm-6 col-lg-6"  style="display: inline-block; background-color: Lavender;" >
+    <a style="padding: 1px;" href="/DichVu/quanLySP" class="btn btn-outline-danger">
+        <img src="../../img/thoat.png" alt="" width="40px" height="40px">
+      </a>
+    <h3>CẬP NHẬP LẠI THÔNG TIN SẢN PHẨM</h3>
+    <form method="POST" action="/DichVu/{{sanphams._id}}/update" enctype="multipart/form-data">
+      <div style="text-align: center;">
+        <img src="../../img/{{sanphams.hinhanh}}" alt="no_image" width="50%" height="50%" style="border: 1px black solid;">
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="masp">Mã Sản Phẩm</label>
+        <input type="type" class="form-control" value="{{sanphams.masp}}" name="masp" id="masp" readonly>
+      </div>
+      <div class="form-group">
+        <label for="tensp">Tên Sản Phẩm</label>
+        <input type="type" class="form-control" value="{{sanphams.tensp}}" name="tensp" id="tensp" required>
+      </div>
+      <div class="form-group">
+        <label for="thongtinsp">Thông Tin Chi Tiết</label>
+        <textarea class="form-control" name="thongtinsp" id="thongtinsp"
+          placeholder="">{{sanphams.thongtinsp}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="giasp">Giá(VNĐ)</label>
+        <input type="number" min="1000" class="form-control" id="giasp" value="{{sanphams.giasp}}" name="giasp"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="khuyenmai">Khuyến Mãi(%)</label>
+        <input type="number" min="0" max="100" class="form-control" id="khuyenmai" value="{{sanphams.khuyenmai}}"
+          name="khuyenmai" required>
+      </div>
+      <div class="form-group">
+        <label for="hinhanh">Hình Ảnh</label>
+        <input type="file" class="form-control" id="hinhanh" name="hinhanh">
+      </div>
+
+      <a href="/DichVu/quanLySP/" class="btn btn-danger">Cancel</a>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  #avt_td:hover {
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    z-index: 99;
+  }
+</style>

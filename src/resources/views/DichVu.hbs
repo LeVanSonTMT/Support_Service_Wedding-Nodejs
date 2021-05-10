@@ -1,0 +1,265 @@
+<div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example" style="width: 100%;">
+        <a href="/DichVu" class="btn btn-secondary"> TẤT CẢ </a>
+        <a href="/DichVu/c" class="btn btn-secondary">CỔNG CƯỚI</a>
+        <a href="/DichVu/r" class="btn btn-secondary">RẠP CƯỚI</a>
+        <a href="/DichVu/bgt" class="btn btn-secondary">BÀN GIA TIÊN</a>
+        <a href="/DichVu/b" class="btn btn-secondary">BACKDROP CHỤP ẢNH</a>
+        <a href="/DichVu/bg" class="btn btn-secondary">BÀN GALLERY</a>
+        <a href="/DichVu/x" class="btn btn-secondary"> XE CƯỚI </a>
+        <a href="/DichVu/bt" class="btn btn-secondary">BÀN GHẾ</a>
+        <a href="/DichVu/pk" class="btn btn-secondary">THIẾT BỊ KHÁC</a>
+    </div>
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ CHO THUÊ CỔNG CƯỚI</h2>
+        <p>
+            Một đám cưới dù tổ chức ở bất kỳ không gian nào như: ngoài trời, trong nhà hàng, nhà riêng. Thì
+            đều không
+            thể thiếu đi cổng cưới. Không chỉ giúp định vị lối vào cho đám cưới, cổng cưới còn là chi tiết được gia chủ
+            chú trọng đầu tư nhằm gây ấn tượng cho khách mời ngay từ lúc vừa đặt chân đến. <br> <br>
+            Cổng cưới của chúng tôi được trang trí rất cầu kỳ, đa dạng, đủ màu sắc và kiểu. Sau đây BEA
+            WEDDING xin được
+            giới thiệu những kiểu trang trí cổng cưới được ưa chuộng nhất từ cái đơn giản cho đến cầu kỳ, từ bình dân
+            đến sang trọng cho các bạn chọn lựa.
+        </p>
+        <H4 style="text-align: left;">SẢN PHẨM CỔNG CƯỚI</H4>
+        <div class="row">
+            {{#each cong}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="../../img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> Khuyến mãi: {{this.khuyenmai}}%</h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <h4>Hiện chưa có sản phẩm nào</h4>
+            {{/each}}
+            
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/c" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ CHO THUÊ RẠP CƯỚI</h2>
+        <p>
+            Rạp đám cưới là một trong những phần không thể thiếu trong đám cưới truyền thống lâu đời của người Việt.
+            Ban đầu, Nhà rạp cưới chỉ là những khung thép căng bạt xanh đơn giản với mục đích che mưa nắng cho quan
+            khách, họ hàng đến dự. <br> <br>
+            Dần dần do nhu cầu về tính thẩm mỹ nên việc trang trí nhà rạp cưới hỏi ngày càng được chú trọng. Cho đến
+            ngày nay, trang trí, tổ chức đám cưới nói chung và rạp cưới nói riêng đã trở thành một lĩnh vực riêng biệt
+            với sự xuất hiện của nhiều đơn vị, công ty tổ chức sự kiện và đa dạng mẫu mã, kiểu dáng, chất liệu của rạp
+            cưới. <br> <br>
+            Nhà rạp cưới đóng vai trò rất quan trọng. Giúp không gian đám cưới trở nên trang trọng, lịch sự hơn. Đây
+            cũng là tín hiệu báo hỷ và tạo không khí vui vẻ cho khách mời và hai bên gia đình. <br> <br>
+
+        </p>
+        <H4 style="text-align: left;">SẢN PHẨM RẠP CƯỚI</H4>
+        <div class="row">
+            {{#each rap}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}} .đ</h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}%</h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/r" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ TRANG TRÍ BÀN GIA TIÊN</h2>
+        <p>
+            Đám cưới là một trong những dịp vô cùng trọng đại của các cặp đôi trẻ. Vì vậy, không gian tiệc cưới luôn
+            được chăm chút và trang hoàng thật tỉ mỉ để để thể hiện sự tôn trọng với gia đình quan viên hai họ cũng như
+            các vị khách mời. <br> <br>
+            Trong đám cưới, bên cạnh trang trí nhà cửa, phông rạp, bàn ghế, cổng chào,… thì trang trí bàn thờ gia tiên
+            ngày cưới cũng có ý nghĩa vô cùng quan trọng. Đây là nơi để cô dâu, chú rể thể hiện lòng thành kính với ông
+            bà, tổ tiên. <br> <br>
+            Vậy ngay sau đây hãy cùng BEA WEDDING chọn lựa cho bạn một mẫu trang trí bàn thờ gia tiên ngày cưới ấn
+            tượng nhất nhé!
+        </p>
+        <H4 style="text-align: left;">SẢN PHẨM TRANG TRÍ BÀN GIA TIÊN</H4>
+        <div class="row">
+            {{#each bangiatien}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/bgt" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ TRANG TRÍ BÀN GALLERY</h2>
+        <p>
+            Đúng như tên gợi của nó, bàn Gallery là nơi chứa đựng những kỷ niệm quen thuộc, ngọt ngào. Mà cặp đôi luôn
+            dành cho nhau, trong quãng thời gian từ lúc mới yêu đến khi quyết định kết hôn. <br> <br>
+            Đó có thể là những bức hình chụp chung. Hay những món quà tình yêu, kỷ niệm sinh nhật,… Và chắc chắn, không
+            thể thiếu những phụ kiện tượng trưng cho ngày kết hôn. Bên cạnh đó, để bàn cưới Gallery trở nên ấn tượng và
+            trọn vẹn hơn. Chúng ta có thể sử dụng thêm những vật trang trí. Như hoa tươi, ánh nến, khung ảnh,… Đem đến
+            một điểm nhấn bắt mắt và cuốn hút nhất. <br> <br>
+            Ngoài việc trang trí bàn gallery cho ngày cưới thì còn cho các tiệc quan trọng khác như: sinh nhật, mừng
+            thọ,... <br> <br>
+            BEA WEDDING sẽ mang đến sự hài lòng nhất cho các bạn từ những mẫu trang trí bàn gallery.
+        </p>
+        <H4 style="text-align: left;">SẢN PHẨM TRANG TRÍ BÀN GALLERY</H4>
+        <div class="row">
+            {{#each bangall}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/bg" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ TRANG TRÍ BACKDROP CHỤP ẢNH</h2>
+        <p>
+            BACKDROP chụp ảnh cho ngày cưới nói riêng, ngoài ra còn có các sự kiện khác như: hội thảo, mừng thọ, sinh nhật,
+            sự kiện cá nhân,... Đối với trang trí như thế nào là hoàn hảo thì bạn cứ tin ở BEA WEDDING, chúng tôi sẽ làm bạn hài lòng
+            và cho bạn sự sang trọng nhất. Sau đây là các mẫu trang trí Backdrop.
+        </p>
+        <H4 style="text-align: left;">SẢN PHẨM TRANG TRÍ BACKDROP CHỤP ẢNH</H4>
+        <div class="row">
+            {{#each backdropChupanh}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/b" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ CHO THUÊ XE HOA</h2>
+        <p>
+            Trong ngày rước dâu của chú rể, xe hoa cưới là thứ thể thiếu và nhằm thể hiện sự sang trọng và ấn tượng 
+            đối với cô dâu, BEA WEDDING có nhiều mẫu xe hoa được trang trí tinh tế, lộng lẫy và đầy sang trọng phù 
+            hợp với mọi sở thích của mọi người.
+        </p>
+        <H4 style="text-align: left;">SẢN PHẨM XE CƯỚI</H4>
+        <div class="row">
+            {{#each xehoa}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/x" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">DỊCH VỤ CHO THUÊ BÀN GHẾ</h2>
+        <H4 style="text-align: left;">SẢN PHẨM BÀN GHẾ</H4>
+        <div class="row">
+            {{#each bantiec}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/bt" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+
+    <div class="mt-4">
+        <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">CHO THUÊ THIẾT BỊ SỰ KIỆN</h2>
+        <h4 style="text-align: left;">SẢN PHẨM</h4>
+        <div class="row">
+            {{#each phukien}}
+            <div class="col-sm-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="/img/{{this.hinhanh}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title"> {{this.tensp}} </h3>
+                        <h5 class="card-text"> Giá: {{this.giasp}}.đ </h5>
+                        <h5 class="card-text"> khuyến mãi: {{this.khuyenmai}}% </h5>
+                        <p><strong>Thông tin chi tiết:</strong> {{this.thongtinsp}}</p>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="container">
+                <p style="text-align: center;">Hiện chưa có sản phẩm nào</p>
+            </div>
+            {{/each}}
+        </div>
+        <p style="text-align: center;"><a href="/DichVu/pk" class="btn btn-outline-primary">xem thêm</a></p>
+    </div>
+</div>

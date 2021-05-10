@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="col-sm-6 col-lg-6">
+        <h2 style="border-bottom: #DC143C 1px solid;"> THÔNG BÁO!!! </h2>
+        {{#each tuyendungs}}
+        <div style="border: #ffffff 1px solid; padding: 1%; background-color: #def1ed;" class="mt-4">
+            <h4 style="text-align: left; color: red;" class="card-title"> {{this.tenTD}} </h4>
+            <p><strong><u>Nội dung tuyển dụng:</u></strong> <br> {{this.noidungTD}} <br>
+                <i> <strong>Ngày tuyển dụng:</strong> từ <strong class="format_ngay">{{this.createdAt}}</strong> đến
+                    <strong class="format_ngay">{{this.hethan}}</strong></i>
+            </p>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+
+<script src="../javascript/script.js"></script>

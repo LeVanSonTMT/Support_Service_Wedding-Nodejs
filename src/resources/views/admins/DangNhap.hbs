@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="col-sm-6 col-lg-4" style="padding: 1%; background-color: #ddd;">
+        <h3 style="color: blue;"> HỆ THỐNG ĐĂNG NHẬP! </h3>
+        <p style="color: red; text-align: center;">Hệ thống đăng nhập chỉ dùng cho nhân viên có tài khoản đã được cấp!
+        </p>
+        <form action="/admins/XLDangNhap" method="POST">
+            <div class="form-group">
+                <label for="username">Tên Đăng Nhập</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="user A" required>
+                <p class="err"> {{errusers}} </p>
+            </div>
+            <div class="form-group">
+                <label for="password">Mật Khẩu</label>
+                <input type="password" class="form-control" id="pw" name="pw" placeholder="*****" required>
+                <p class="err"> {{errpass}} </p>
+            </div>
+            <button type="reset" class="btn btn-primary" id="b2">Reset</button>
+            <button type="submit" class="btn btn-primary" id="b3">Submit</button>
+        </form>
+    </div>
+</div>

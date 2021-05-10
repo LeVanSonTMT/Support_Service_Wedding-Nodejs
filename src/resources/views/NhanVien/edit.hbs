@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="col-sm-6 col-lg-6"  style="display: inline-block; background-color: Lavender;" >
+    <a style="padding: 1px;" href="/NhanVien/quanLyNV" id="url" class="btn btn-outline-danger">
+        <img src="../../img/thoat.png" alt="" width="40px" height="40px">
+      </a>
+    <h3>CẬP NHẬP LẠI THÔNG TIN NHÂN VIÊN</h3>
+    <form method="POST" action="/NhanVien/{{taikhoan._id}}/update" enctype="multipart/form-data">
+      <div style="text-align: center;">
+        <img src="../../img/{{taikhoan.avt}}" alt="no_image" width="150px" height="150px" style="border: 1px black solid;">
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="ten">Tên Nhân Viên</label>
+        <input type="type" class="form-control" value="{{taikhoan.ten}}" onchange="return kt_ten(this.value)" name="ten"
+          id="ten" required>
+        <p id="ktten" class="dauvao"></p>
+      </div>
+      <div class="form-group">
+        <label for="sdt">Số Điện Thoại</label>
+        <input type="type" class="form-control" onchange="return kt_sdt(this.value)" value="{{taikhoan.sdt}}" name="sdt"
+          id="sdt" required>
+        <p id="ktsdt" class="dauvao"></p>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="type" class="form-control" id="email" onchange="return kt_email(this.value)"
+          value="{{taikhoan.email}}" name="email" required>
+        <p id="ktemail" class="dauvao"></p>
+      </div>
+      <div class="form-group">
+        <label for="">Ngày Sinh</label>
+        <input type="date" class="form-control" id="ngaysinh" name="ngaysinh">
+      </div>
+      <script>
+        var a = document.getElementById("ngaysinh");
+        var temp = new Date('{{taikhoan.ngaysinh}}').toISOString().slice(0, 10);
+        a.value = temp;
+      </script>
+      <div class="form-group">
+        <p> Giới Tính: &emsp;&emsp;
+          <span>Nam <input type="radio" value="Nam" id="nam" name="gioitinh"> </span> &emsp;
+          <span>Nữ <input type="radio" value="Nu" id="nu" name="gioitinh"> </span>
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="diachi">Địa Chỉ</label>
+        <input type="type" class="form-control" id="diachi" value="{{taikhoan.diachi}}" name="diachi" required>
+      </div>
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="type" class="form-control" id="username" value="{{taikhoan.username}}" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" value="{{taikhoan.password}}" name="password"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="loai">Loại User_Name(0: admin; 1: staff)</label>
+        <input type="number" min="0" max="1" class="form-control" id="loai" value="{{taikhoan.loai}}" name="loai"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="avt">Hình Ảnh</label>
+        <input type="file" class="form-control" id="avt" name="avt">
+      </div>
+      <a href="/NhanVien/quanLyNV" id="url" class="btn btn-danger">Cancel</a>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  var qs = (function (a) {
+    if (a == "") return {};
+    var b = {};
+    for (var i = 0; i < a.length; ++i) {
+      var p = a[i].split('=', 2);
+      if (p.length == 1)
+        b[p[0]] = "";
+      else
+        b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+    }
+    return b;
+  })(window.location.search.substr(1).split('&'));
+  temp = qs['linkCacel']
+  if (temp) {
+    document.getElementById('url').href = temp;
+  }
+
+  if ('{{taikhoan.gioitinh}}' === 'Nu') {
+    document.getElementById('nu').checked = true;
+  }
+  else {
+    document.getElementById('nam').checked = true;
+  }
+
+</script>
+
+
+<script src="../../javascript/script.js"></script>

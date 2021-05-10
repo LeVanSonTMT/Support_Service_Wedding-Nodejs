@@ -1,0 +1,91 @@
+<div class="container">
+   <div>
+    <h3>LỊCH SỬ CÁC THÔNG BÁO </h3>
+    <table class="table table-hover table-striped" id="table_T">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tên Thông Báo</th>
+          <th scope="col">Nội Dung</th>
+          <th scope="col">Ngày Đăng</th>
+          <th scope="col">Hết Hạn</th>
+          <th scope="col">Ngày Xóa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tuyendungs}}
+        <tr>
+          <th scope="row">{{sum @index 1}}</th>
+          <td>{{this.tenTD}}</td>
+          <td>{{this.noidungTD}}</td>
+          <td class="format_ngay">{{this.createdAt}}</td>
+          <td class="format_ngay">{{this.hethan}}</td>
+          <td class="format_ngay">{{this.deletedAt}}</td>
+          <td>
+            <a style="padding: 0;" href="" class="btn btn-outline-danger" data-toggle="modal" data-id="{{this._id}}"
+              data-target="#delete_TB">
+            <img src="../../img/xoa.png" alt="" width="40px" height="40px">  
+            </a>
+          </td>
+        </tr>
+
+        {{else}}
+        <tr>
+          <td colspan="5" style="color: red;" class="text-center"> không có thông báo nào!
+          </td>
+        </tr>
+
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- Model delete Thông Báo -->
+  <div class="modal fade" id="delete_TB" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc chắn muốn xóa vĩnh viễn thông báo này không?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" id="btnXTB" class="btn btn-success">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- form xu ly xoa thong bao --}}
+  <form name="formXoaTB" method="POST" style="display: none;"></form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var idsp;
+      var formXoaTB = document.forms['formXoaTB'];
+      var btnXTB = document.getElementById('btnXTB');
+
+      $('#delete_TB').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        idsp = button.data('id');
+
+      });
+
+      btnXTB.onclick = function () {
+        formXoaTB.action = '/TuyenDung/' + idsp + '/delete';
+        formXoaTB.submit();
+      }
+    });
+  </script>
+  <script src="../../javascript/script.js"></script>
+
+</div>

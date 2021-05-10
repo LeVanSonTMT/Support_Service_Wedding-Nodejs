@@ -1,0 +1,67 @@
+body {
+  background-color: #ffffff; }
+  body h1,
+  body h2,
+  body h3,
+  body h4,
+  body h5,
+  body h6 {
+    text-align: center; }
+  body h1 {
+    color: red; }
+  body h2 {
+    color: #dc143c; }
+  body h3 {
+    color: #ff9900; }
+  body a {
+    text-decoration: none;
+    font-weight: bold; }
+  body a:hover {
+    text-decoration: none;
+    color: red; }
+  body .dauvao {
+    text-align: center;
+    color: red; }
+  body .container {
+    margin-top: 1%;
+    margin-bottom: 2%; }
+    body .container form {
+      background-color: #9999ff;
+      padding: 4%; }
+    body .container #table_T {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd; }
+      body .container #table_T #avt_td:hover {
+        width: 250px;
+        height: 200px;
+        position: absolute;
+        z-index: 99; }
+    body .container #collapsibleNavbar #ol_dv {
+      display: none;
+      position: absolute;
+      z-index: 9999;
+      width: auto;
+      height: auto;
+      padding: 0 1%; }
+      body .container #collapsibleNavbar #ol_dv li {
+        background-color: #ddd; }
+    body .container #collapsibleNavbar #li_DV:hover > #ol_dv {
+      display: block; }
+    body .container thead {
+      background-color: #bbbbbb; }
+  body #footer {
+    background-color: #f0cfd2;
+    margin-bottom: 0%; }
+  body #header {
+    background-color: #f0cfd2; }
+    body #header #avt_web {
+      background-color: #f0cfd2;
+      padding: 20px 0px 0px 0px;
+      margin-bottom: 0%; }
+    body #header #thanh_tim_kiem {
+      margin-left: 2.5%;
+      display: inline-block;
+      background-color: #ddd;
+      padding: 0.5%; }

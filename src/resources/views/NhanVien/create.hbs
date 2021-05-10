@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="col-sm-6 col-lg-6"  style="display: inline-block; background-color: Lavender;" >
+    <a style="padding: 1px;" href="/NhanVien/quanLyNV" class="btn btn-outline-danger">
+        <img src="../../img/thoat.png" alt="" width="40px" height="40px">
+      </a>
+    <h3>THÊM NHÂN VIÊN MỚI</h3>
+    <h6 style="color: red;">Chú ý điền đẩy đủ các thông tin bên dưới để thêm nhân viên!</h6>
+    <form method="POST" action="/NhanVien/store" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="ten">Tên Nhân Viên</label>
+        <input type="type" class="form-control" name="ten" onchange="return kt_ten(this.value)" id="ten" placeholder="Nguyễn Văn A" required>
+        <p id="ktten" class="dauvao"></p>
+      </div>
+      <div class="form-group">
+        <label for="sdt">Số Điện Thoại</label>
+        <input type="type" class="form-control" name="sdt" onchange="return kt_sdt(this.value)" id="sdt" placeholder="0987654321" required>
+        <p id="ktsdt" class="dauvao"></p>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" onchange="return kt_email(this.value)" name="email" placeholder="name@gmail.com" required>
+        <p id="ktemail" class="dauvao"></p>
+      </div>
+      <div class="form-group">
+        <label for="ngaysinh">Ngày Sinh</label>
+        <input type="Date" class="form-control" id="ngaysinh" name="ngaysinh" placeholder="" required>
+      </div>
+      <div class="form-group">
+        <p> Giới Tính:  &emsp;&emsp;
+          <span>Nam <input type="radio" value="Nam" name="gioitinh" checked> </span> &emsp;
+          <span>Nữ <input type="radio" value="Nu" name="gioitinh"> </span>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="diachi">Địa Chỉ</label>
+        <input type="type" class="form-control" id="diachi" name="diachi" placeholder="số... đường..., xã..., huyện..., tỉnh..." required>
+      </div>
+
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="type" class="form-control" id="username" name="username" placeholder="user A" required>
+        <p style="color: red;">{{errr}}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="avt">Hình Ảnh</label>
+        <input type="file" class="form-control" id="avt" name="avt">
+      </div>
+      <a href="/NhanVien/quanLyNV" class="btn btn-danger">Cancel</a>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="../../javascript/script.js"></script>

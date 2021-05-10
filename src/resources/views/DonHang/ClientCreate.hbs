@@ -1,0 +1,411 @@
+<div class="container">
+    <h2 style="text-align: center; border-bottom: #DC143C 1px solid;">ĐẶT HÀNG</h2>
+    <div>
+        <form method="POST" action="" name="formStoreSP">
+            <div class="form-group">
+                <label for="">Tên Khách Hàng</label>
+                <input type="type" class="form-control" onchange="return kt_ten(this.value)" name="nguoimua"
+                    id="nguoimua" placeholder="Nguyen Van A" required>
+                <p id="ktten" class="dauvao"></p>
+            </div>
+            <div class="form-group">
+                <label for="">Số Điện Thoại</label>
+                <input type="type" class="form-control" onchange="return kt_sdt(this.value)" name="SDTnguoimua"
+                    id="SDTnguoimua" placeholder="0987654321" required>
+                <p id="ktsdt" class="dauvao"></p>
+            </div>
+            <div class="form-group">
+                <label for="">Địa Chỉ</label>
+                <input type="type" class="form-control" id="DiaChinguoimua" name="DiaChinguoimua"
+                    placeholder="Số 33 Lý Tự Trọng, Mỹ Bình, LX, AG" required>
+            </div>
+            <div class="form-group">
+                <label for="">Ngày Giao</label>
+                <input type="date" class="form-control" onchange="return kt_ngaygiao(this.value)" id="ngaygiao"
+                    name="ngaygiao" placeholder="" required>
+                <p id="ktngaygiao" class="dauvao"></p>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                {{#each masp}}
+                <button onclick="hienthisp('{{this.ma}}')" class="btn btn-primary">{{this.ten}}</button>
+                {{/each}}
+
+            </div>
+
+            <div class="col-sm-6 col-lg-6">
+                <h4 style="text-align: left;">Sản Phẩm</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Giá</th>
+                            <th>Khuyến Mãi</th>
+                            <th>Hình Ảnh</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    {{!-- sản phẩm cổng cưới --}}
+                    <tbody class="tbody_sp" id="c">
+                        {{#each cong}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm rạp cưới --}}
+                    <tbody class="tbody_sp" id="r">
+                        {{#each rap}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm ban gia tiên --}}
+                    <tbody class="tbody_sp" id="bgt">
+                        {{#each bangiatien}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm phụ kiện --}}
+                    <tbody class="tbody_sp" id="pk">
+                        {{#each phukien}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm xe hoa --}}
+                    <tbody class="tbody_sp" id="x">
+                        {{#each xehoa}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm backdrop chụp ảnh --}}
+                    <tbody class="tbody_sp" id="b">
+                        {{#each backdropChupanh}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm bàn gallery --}}
+                    <tbody class="tbody_sp" id="bg">
+                        {{#each bangall}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    {{!-- sản phẩm bàn ghế đãi tiệc --}}
+                    <tbody class="tbody_sp" id="bt">
+                        {{#each bantiec}}
+                        <tr>
+                            <td class="{{this._id}}">{{this.tensp}}</td>
+                            <td class="{{this._id}}">{{this.giasp}}</td>
+                            <td class="{{this._id}}">{{this.khuyenmai}}</td>
+                            <td class="{{this._id}}">
+                                <img src="../img/{{this.hinhanh}}" alt="no_image" width="35px" height="35px"
+                                    id="avt_td">
+                            </td>
+                            <td><a style="padding: 0;" href="" data-toggle="modal" class="btn btn-outline-success "
+                                    data-id="{{this._id}}" data-target="#Them">
+                                    <img src="../../img/add.png" alt="" width="35px" height="35px">
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div class="col-sm-6 col-lg-9">
+                <table border="1" class="table table-hover" id="myTable">
+                    <tr>
+                        <th colspan="8">
+                            <h4>Danh Sách Sản Phẩm Được Thêm</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Tên Sản Phẩm</td>
+                        <td>Giá(đ)</td>
+                        <td>Khuyến Mãi(%)</td>
+                        <td>Số Lượng</td>
+                        <td>Ghi Chú</td>
+                        <td>Thành Tiền(đ)</td>
+                        <td></td>
+                    </tr>
+                    <tr id="kt_null" style="display: none;">
+                        <th colspan="7" style="border: red 1px solid; color: red;">
+                            Bạn chưa thêm sản phẩm nào vào đơn hàng!
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            {{!-- cho chua cac san pham duoc mua --}}
+            <input style="display: none;" type="type" class="form-control" id="tempSP" name="tempSP" value="" required>
+
+            <div class="form-group">
+                <label for="">Tổng Tiền</label>
+                <input type="type" class="form-control" id="tongtien" name="tongtien" value="" placeholder="0.đ"
+                    readonly>
+            </div>
+
+            <button type="reset" onClick="resetFrom()" class="btn btn-primary">Reset</button>
+            <button type="submit" onClick="submitFrom()" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Model  -->
+<div class="modal fade" id="Them" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc muốn thêm sản phẩn này không?</p>
+                <label for="">Số lượng</label>
+                <input type="text" class="ClassForm" id="soluong" name="soluong" value="1"> <br>
+                <label for="">Ghi chú</label>
+                <input type="text" class="ClassForm" id="ghichu" name="ghichu">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btn_Them" class="btn btn-success">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .tbody_sp {
+        display: none;
+    }
+
+    #avt_td:hover {
+        width: 250px;
+        height: 200px;
+        position: absolute;
+        z-index: 99;
+    }
+</style>
+
+
+<script src="../../javascript/script.js"></script>
+<script>
+    function hienthisp(abc) {
+        if (abc === 'c') {
+            document.getElementById('c').style.display = 'table-row-group';
+        }
+        else document.getElementById('c').style.display = 'none';
+        if (abc === 'r') {
+            document.getElementById('r').style.display = 'table-row-group';
+        }
+        else document.getElementById('r').style.display = 'none';
+        if (abc === 'b') {
+            document.getElementById('b').style.display = 'table-row-group';
+        }
+        else document.getElementById('b').style.display = 'none';
+        if (abc === 'bgt') {
+            document.getElementById('bgt').style.display = 'table-row-group';
+        }
+        else document.getElementById('bgt').style.display = 'none';
+        if (abc === 'bg') {
+            document.getElementById('bg').style.display = 'table-row-group';
+        }
+        else document.getElementById('bg').style.display = 'none';
+        if (abc === 'bt') {
+            document.getElementById('bt').style.display = 'table-row-group';
+        }
+        else document.getElementById('bt').style.display = 'none';
+        if (abc === 'x') {
+            document.getElementById('x').style.display = 'table-row-group';
+        }
+        else document.getElementById('x').style.display = 'none';
+        if (abc === 'pk') {
+            document.getElementById('pk').style.display = 'table-row-group';
+        }
+        else document.getElementById('pk').style.display = 'none';
+    }
+
+    function huySP(id) {
+        localStorage.removeItem(id);
+        loadTable();
+    }
+
+    function resetFrom() {
+        console.log("dasgd ")
+        localStorage.clear();
+        loadTable();
+    }
+
+    var startTable = document.getElementById("myTable").innerHTML;
+    localStorage.length !== 0 ? loadTable() : "";
+    document.addEventListener('DOMContentLoaded', function () {
+        var idsp;
+        var btn_Them = document.getElementById('btn_Them');
+        var sanpham;
+        $('#Them').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            idsp = button.data('id');
+            sanpham = document.getElementsByClassName(idsp);
+        });
+
+        btn_Them.onclick = function () {
+            var mangsanpham = [];
+            mangsanpham.push(document.getElementById('soluong').value);
+            mangsanpham.push(document.getElementById('ghichu').value);
+            for (const element of sanpham) {
+                mangsanpham.push(element.innerHTML);
+            }
+            localStorage.setItem(idsp, mangsanpham);
+            $('#Them').modal('hide');
+            //hiện sản phẩm           
+            loadTable();
+        }
+    });
+
+    function loadTable() {
+        var tt = 0;
+        document.getElementById("myTable").innerHTML = startTable;
+        for (i = 0; i < localStorage.length; i++) {
+            x = localStorage.key(i);
+            y = localStorage.getItem(x);
+            k = y.split(',');
+            t = (k[3] * k[0]) - (k[3] * k[4] / 100);
+            tt = tt + t;
+
+            var table = document.getElementById("myTable");
+            row = table.insertRow(table.rows.length);
+            row.insertCell(0).innerHTML = (i + 1);
+            row.insertCell(1).innerHTML = k[2];
+            row.insertCell(2).innerHTML = k[3];
+            row.insertCell(3).innerHTML = k[4];
+            row.insertCell(4).innerHTML = k[0];
+            row.insertCell(5).innerHTML = k[1];
+            row.insertCell(6).innerHTML = t;
+            row.insertCell(7).innerHTML = '<button id="' + x + '" onClick="huySP(`' + x + '`)" type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>';
+        }
+        document.getElementById('tongtien').value = tt;
+    }
+
+    function submitFrom() {
+        if ((bien_kt_ngaygiao === true) && (bien_kt_sdt === true) && (bien_kt_ten === true)) {
+            bien_kt = true;
+        }
+        console.log(bien_kt)
+        if (bien_kt === true) {
+            var kt = localStorage.length;
+            console.log('gia tri kt = ', kt);
+            if (kt === 0) {
+                document.getElementById('kt_null').style.display = 'table-row';
+            }
+            else {
+                mangSP = [];
+                for (i = 0; i < localStorage.length; i++) {
+                    x = localStorage.key(i) + ',' + localStorage.getItem(localStorage.key(i));
+                    mangSP.push(x);
+                }
+                document.getElementById("tempSP").value = mangSP.join("-");
+                var formSP = document.forms['formStoreSP'];
+                formSP.action = '/DonHang/storeHDClient';
+                formSP.submit();
+                localStorage.clear();
+                loadTable();
+                alert('Cảm ơn quý khách đã đặt mua hàng thành công! Chúng tôi sẽ sớm liên hệ qua số điện thoại của bạn, để xác nhận đơn hàng lại 1 lần nữa!');
+            }
+        }
+    }
+</script>

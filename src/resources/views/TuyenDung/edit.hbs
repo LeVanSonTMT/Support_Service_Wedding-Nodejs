@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="col-sm-6 col-lg-5"  style="display: inline-block; background-color: Lavender;" >
+    <a style="padding: 1px;" href="/TuyenDung/quanLyTD" class="btn btn-outline-danger">
+        <img src="../../img/thoat.png" alt="" width="40px" height="40px">
+      </a>
+    <h3>CẬP NHẬP LẠI THÔNG BÁO</h3>
+
+    <form method="POST" action="/TuyenDung/{{tuyendungs._id}}/update">
+
+      <div class="form-group">
+        <label for="tenTD">Tên Thông Báo</label>
+        <input type="type" class="form-control" value="{{tuyendungs.tenTD}}" name="tenTD" id="tenTD" required>
+      </div>
+
+      <div class="form-group">
+        <label for="noidungTD">Nội Dung Thông Báo</label>
+        <textarea type="type" class="form-control" name="noidungTD" id="noidungTD"
+          required>{{tuyendungs.noidungTD}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="hethan">Ngày Hết Hạn</label>
+        <input type="date" class="form-control" name="hethan" onchange="return kt_ngaygiao(this.value)" id="hethan"
+          required>
+        <p id="ktngaygiao" class="dauvao"></p>
+      </div>
+
+      <script>
+        var a = document.getElementById("hethan");
+        var temp = new Date('{{tuyendungs.hethan}}').toISOString().slice(0, 10);
+        a.value = temp;
+      </script>
+
+      <a href="/TuyenDung/quanLyTD" class="btn btn-danger">Cacel</a>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  </div>
+</div>
+
+<script src="../../javascript/script.js"></script>

@@ -1,0 +1,193 @@
+<div class="container">
+  <h3>DANH SÁCH SẢN PHẨM</h3>
+  <div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a style="padding: 0;" class="btn btn-outline-success" href="/DichVu/create">
+        <img src="../../img/add.png" alt="" width="34px" height="34px">
+      </a>
+      <a href="/DichVu/quanLySP" class="btn btn-secondary"> TẤT CẢ</a>
+      <a href="/DichVu/quanLySP/c" class="btn btn-secondary">CỔNG CƯỚI</a>
+      <a href="/DichVu/quanLySP/r" class="btn btn-secondary">RẠP CƯỚI</a>
+      <a href="/DichVu/quanLySP/bgt" class="btn btn-secondary">BÀN GIA TIÊN</a>
+      <a href="/DichVu/quanLySP/bg" class="btn btn-secondary">BÀN GALLERY</a>
+      <a href="/DichVu/quanLySP/b" class="btn btn-secondary">BACKDROP</a>
+      <a href="/DichVu/quanLySP/x" class="btn btn-secondary"> XE HOA </a>
+      <a href="/DichVu/quanLySP/bt" class="btn btn-secondary">BÀN GHẾ</a>
+      <a href="/DichVu/quanLySP/pk" class="btn btn-secondary">PHỤ KIỆN KHÁC</a>
+    </div>
+    <p style="margin: 0;">Tổng số SP là: {{countSP}}</p>
+    <script> var x = parseFloat({{countSP}})/10.0; </script>
+    <table class="table table-hover table-striped" id="table_T">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Mã</th>
+          <th scope="col">Tên</th>
+          <th scope="col">Ảnh</th>
+          <th scope="col">Giá(VNĐ)</th>
+          <th scope="col">Khuyến Mãi(%)</th>
+          <th scope="col">Thông Tin Chi Tiết</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sanphams}}
+        <tr>
+          <th scope="row">{{sum @index 1}}</th>
+          <td>{{this.masp}}</td>
+          <td>{{this.tensp}}</td>
+          <td> <img src="../../img/{{this.hinhanh}}" alt="no_image" width="20px" height="20px" id="avt_td"> </td>
+          <td>{{this.giasp}}</td>
+          <td>{{this.khuyenmai}}</td>
+          <td>{{this.thongtinsp}}</td>
+          <td>
+            <a style="padding: 0;" href="/DichVu/{{this._id}}/edit" class="btn btn-outline-warning">
+              <img src="../../img/edit.png" alt="" width="40px" height="40px">
+            </a>
+          </td>
+          <td>
+            <a style="padding: 0;" href="" class="btn btn-outline-danger" data-toggle="modal" data-id="{{this._id}}"
+              data-target="#an_SP">
+              <img src="../../img/remove.png" alt="" width="40px" height="40px">
+            </a>
+          </td>
+        </tr>
+        {{!-- {{/if}} --}}
+        {{else}}
+        <tr>
+          <td colspan="8" style="color: red;" class="text-center"> Chưa có sản phẩm nào!
+            <a href="/DichVu/create" class="btn btn-success"> Thêm </a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <div id="nut_pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" style=" justify-content: center;">
+          <li class="page-item disabled" id="Previous">
+            <a class="page-link" href="" id="a_Previous">Previous</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+
+  <!-- Model Ẩn San Pham -->
+  <div class="modal fade" id="an_SP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Bạn có chắc chắn muốn ẩn sản phẩm này không?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" id="an-sp" class="btn btn-success">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- form xu ly ẩn san pham --}}
+  <form name="formAnSP" method="POST" style="display: none;"></form>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var idsp;
+      var formAnSP = document.forms['formAnSP'];
+      var btnAnSP = document.getElementById('an-sp');
+
+      $('#an_SP').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        idsp = button.data('id');
+
+      });
+
+      btnAnSP.onclick = function () {
+        formAnSP.action = '/DichVu/' + idsp + '/anSP';
+        formAnSP.submit();
+      }
+
+    });
+  </script>
+
+</div>
+
+
+<script>
+
+  var y = x - parseInt(x);
+  if (y > 0) {
+    x = parseInt(x) + 1;
+  }
+
+  if (parseInt(x) <= 1) {
+    document.getElementById('nut_pagination').style.display = 'none';
+  }
+
+  const url = new URL(location.href);
+  const page = url.search.substr(6);
+  for (i = 0; i < x; i++) {
+    var li = document.createElement('li');
+    // add class
+    if (i + 1 == Number(page)) {
+      li.className = "page-item active";
+    } else {
+      li.className = "page-item";
+    }
+    li.id = (i + 1);
+    // tạo link a <a></a>
+    var a = document.createElement('a');
+    a.className = 'page-link';
+    a.href = '?page=' + (i + 1);
+    var aText = document.createTextNode((i + 1));
+    a.appendChild(aText);
+    // append to li
+    li.appendChild(a);
+    // append li to ul
+    var ul = document.querySelector('.pagination');
+    ul.appendChild(li);
+  }
+
+  {
+    var li = document.createElement('li');
+    li.id = 'Next';
+    // tạo link a <a></a>
+    var a = document.createElement('a');
+    a.className = 'page-link';
+    a.id = 'a_Next';
+    a.href = "?page=" + (Number(page) + 1);
+    var aText = document.createTextNode('Next');
+    a.appendChild(aText);
+    // append to li
+    li.appendChild(a);
+    // append li to ul
+    var ul = document.querySelector('.pagination');
+    ul.appendChild(li);
+  }
+
+  if (!page) {
+    document.getElementById('1').className = 'page-item active';
+    document.getElementById('a_Next').href = "?page=2";
+  }
+
+  if ((page) && (Number(page) != 1)) {
+    document.getElementById('Previous').className = 'page-item';
+    document.getElementById('a_Previous').href = "?page=" + (Number(page) - 1);
+  }
+
+  if ((page) && (Number(page) >= parseInt(x))) {
+    document.getElementById('Next').className = 'page-item disabled';
+  }
+
+</script>
