@@ -110,12 +110,19 @@
                             <a class="dropdown-item" href="/TuyenDung/quanLyTDDaXoa">Lịch Sử</a>
                         </div>
                     </div>
+                    <div style="display: none;" id="xem_tb">
+                        <button class="btn btn-secondary" type="button" style="padding: 0px;">
+                            <a class="btn btn-secondary" style="border: 0px;"  href="/TuyenDung">THỐNG BÁO</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div><a style="border: solid 1px blue;" class="nav-link btn btn-outline-primary " id="dangnhap" href="/admins/DangNhap"> Đăng Nhập </a>
+        <div><a style="border: solid 1px blue;" class="nav-link btn btn-outline-primary " id="dangnhap"
+                href="/admins/DangNhap"> Đăng Nhập </a>
         </div>
+
         <img id="icon_admin" src="../../img/icon_admin.png" alt="" width="2.8%" height="2.8%">
         <div class="dropdown" id="dangxuat">
             <button style="background-color: #1bce9e;" id="user_name" class="btn btn-outline dropdown-toggle"
@@ -146,6 +153,7 @@
                 document.getElementById('qlnv').style.display = 'none';
                 document.getElementById('qlsp').style.display = 'none';
                 document.getElementById('qltb').style.display = 'none';
+                document.getElementById('xem_tb').style.display = 'block';
             }
         }
         else {
@@ -190,7 +198,7 @@
         border: 1px black solid;
     }
 
-    
+
     #dangxuat {
         margin-right: 5%;
     }
@@ -207,9 +215,10 @@
         bottom: 1%;
         position: fixed;
         z-index: 80;
-    }
-    .aaa{
-        color: black;
+        min-width: 62px;
     }
 
+    .aaa {
+        color: black;
+    }
 </style>
