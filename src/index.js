@@ -17,7 +17,7 @@ const multer = require('multer');
 db.connect();
 
 const app = express();
-const port = 3003;
+const port = 3000;
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
@@ -57,6 +57,5 @@ io.on('connection', function (sockec) {
 
 // route init
 route(app);
-
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`));

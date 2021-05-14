@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-sm-6 col-lg-6"  style="display: inline-block; background-color: Lavender;" >
-    <a style="padding: 1px;" href="/NhanVien/quanLyNV" id="url" class="btn btn-outline-danger">
+    <a style="padding: 1px;" href="/NhanVien/quanLyNV" id="url1" class="btn btn-outline-danger">
         <img src="../../img/thoat.png" alt="" width="40px" height="40px">
       </a>
     <h3>CẬP NHẬP LẠI THÔNG TIN NHÂN VIÊN</h3>
@@ -66,7 +66,7 @@
         <label for="avt">Hình Ảnh</label>
         <input type="file" class="form-control" id="avt" name="avt">
       </div>
-      <a href="/NhanVien/quanLyNV" id="url" class="btn btn-danger">Cancel</a>
+      <a href="/NhanVien/quanLyNV" id="url2" class="btn btn-danger">Cancel</a>
       <button type="reset" class="btn btn-primary">Reset</button>
       <button type="submit" class="btn btn-success">Update</button>
     </form>
@@ -89,7 +89,8 @@
   })(window.location.search.substr(1).split('&'));
   temp = qs['linkCacel']
   if (temp) {
-    document.getElementById('url').href = temp;
+    document.getElementById('url1').href = temp;
+    document.getElementById('url2').href = temp;
   }
 
   if ('{{taikhoan.gioitinh}}' === 'Nu') {
