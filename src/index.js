@@ -17,7 +17,7 @@ const multer = require('multer');
 db.connect();
 
 const app = express();
-const port = 3000;
+const port = 3009;
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);

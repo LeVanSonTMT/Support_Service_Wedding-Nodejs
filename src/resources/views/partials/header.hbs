@@ -144,7 +144,7 @@
     <script>
         if (document.cookie) {
             var ten = document.cookie.split(';')[2].split('=')[1];
-
+            //console.log(document.cookie.split(';'));
             document.getElementById("dangnhap").style.display = 'none';
             document.getElementById('menuTT').style.display = 'none';
             document.getElementById('user_name').innerHTML = ten.replaceAll('%20', ' ');
