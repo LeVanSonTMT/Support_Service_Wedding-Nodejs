@@ -37,8 +37,6 @@ class adminControlers {
             }).catch(() => {
                 res.render('admins/DangNhap', { errusers: ['Tên đăng chưa đúng!'] })
             })
-
-
     }
 
     tk(req, res, next) {
