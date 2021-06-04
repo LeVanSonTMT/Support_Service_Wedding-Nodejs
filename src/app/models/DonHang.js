@@ -14,7 +14,6 @@ const DonHang = new Schema({
   nguoiban: {type: String},
   tongtien: {type: Number},
   trangthai: {type: String},
-
 }, {timestamps: true});
 
 //Add plugin 
